@@ -1,8 +1,8 @@
 #include <fardriver_controller.hpp>
 #include <HardwareSerial.h>
 
-#define FARDRIVER_RX 44
-#define FARDRIVER_TX 43
+#define FARDRIVER_TX 13
+#define FARDRIVER_RX 14
 
 FardriverSerial fardriverSerial {
     .write = [](const uint8_t * data, uint32_t length) -> uint32_t {
@@ -29,7 +29,8 @@ void setup() {
     Serial.begin(115200);
 
     // hardware serial to fardriver controller
-    Serial2.begin(19200, SERIAL_8N1, FARDRIVER_RX, FARDRIVER_TX);
+    // we need to receive from the TX, and transmit to the RX
+    Serial2.begin(19200, SERIAL_8N1, FARDRIVER_TX, FARDRIVER_RX);
 }
 
 void loop() {
