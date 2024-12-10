@@ -20,7 +20,13 @@ GND            | 13    | Black        | Reverse/Serial GND
 TXD            | 12    | Brown/Blue   | Serial TX (3.3V)
 RXD            | 23    | Red/Black    | Serial RX (3.3V)
 
-### Connections to make
+![image](reference/fardriver-unit.jpg)
+
+### ESP32 side
+
+![image](reference/esp32.jpg)
+
+### Adapter cable
 
 Fardriver | ESP32 | Notes
 ---|---|---
@@ -29,4 +35,6 @@ GND | GND |
 TXD | 13 |
 RXD | 14 |
 
-\* Best to just leave disconnected for now
+*Leave BW5V <-> 5V disconnected for now (mine is tapped with electrical tape so nothing is shorted)
+
+![image](reference/fardriver-plug.jpg)

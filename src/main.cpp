@@ -3,8 +3,8 @@
 #include <NeoPixelBus.h>
 
 // pin definitions
-#define FARDRIVER_TX 14
-#define FARDRIVER_RX 13
+#define FARDRIVER_TX 13
+#define FARDRIVER_RX 14
 #define RGB_LED 48
 
 NeoPixelBus<NeoGrbFeature, NeoSk6812Method> strip(1, RGB_LED);
@@ -33,6 +33,7 @@ void setup() {
 
     Serial.println("Starting up");
 
+    // use on-board LED for some status stuff
     strip.Begin();
     strip.SetPixelColor(0, RgbColor(0, 10, 0));
     strip.Show();
@@ -40,8 +41,7 @@ void setup() {
     Serial.println("LED Started");
 
     // hardware serial to fardriver controller
-    // we need to receive from the TX, and transmit to the RX
-    Serial2.begin(19200, SERIAL_8N1, FARDRIVER_TX, FARDRIVER_RX);
+    Serial2.begin(19200, SERIAL_8N1, FARDRIVER_RX, FARDRIVER_TX);
 }
 
 void loop() {
@@ -65,7 +65,7 @@ void loop() {
             case 0xE2:
             case 0xE8:
             case 0xEE: {
-                // could handle more common messages like this
+                // could handle more common messages here (these are sent often)
             } break;
             case 0xD6: {
                 Serial.printf("MosTemp: %d\n", data.addrD6.MosTemp);
