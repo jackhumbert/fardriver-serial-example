@@ -36,7 +36,7 @@ GND | GND |
 TXD | 13 |
 RXD | 14 |
 
-*Leave BW5V <-> 5V disconnected for now (mine is tapped with electrical tape so nothing is shorted)
+*Leave BW5V <-> 5V disconnected for now (mine is wrapped with electrical tape so nothing is shorted)
 
 ![image](reference/fardriver-plug.jpg)
 
