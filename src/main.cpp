@@ -3,8 +3,8 @@
 #include <NeoPixelBus.h>
 
 // pin definitions
-#define FARDRIVER_TX 13
-#define FARDRIVER_RX 14
+#define FARDRIVER_TX 14
+#define FARDRIVER_RX 13
 #define RGB_LED 48
 
 NeoPixelBus<NeoGrbFeature, NeoSk6812Method> strip(1, RGB_LED);
@@ -48,6 +48,7 @@ void loop() {
     if (messages_received == 0) {
         Serial.println("(Re)opening Fardriver connection");
         controller.Open();
+        delay(100);
 
         strip.SetPixelColor(0, RgbColor(10, 5, 0));
         strip.Show();
@@ -56,6 +57,8 @@ void loop() {
     // check for messages from serial
     auto result = controller.Read(&data);
     if (result.error == FardriverController::Success) {
+        strip.SetPixelColor(0, RgbColor(0, 10, 0));
+        strip.Show();
         last_update = micros();
         messages_received++;
         switch (result.addr) {
@@ -63,6 +66,12 @@ void loop() {
             case 0xE8:
             case 0xEE: {
                 // could handle more common messages like this
+            } break;
+            case 0xD6: {
+                Serial.printf("MosTemp: %d\n", data.addrD6.MosTemp);
+            } break;
+            case 0xF4: {
+                Serial.printf("motor_temp: %d\n", data.addrF4.motor_temp);            
             } break;
             default:
                 break;
@@ -76,6 +85,4 @@ void loop() {
     if (micros() - last_update > 1000000 || messages_received >= 300) {
         messages_received = 0;
     }
-  
-    delay(50);
 }
