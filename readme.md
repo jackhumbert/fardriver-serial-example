@@ -7,9 +7,13 @@
 
 ## Hardware
 
+### ESP32 side
+
 * [ESP32 S3 Dev board](https://www.amazon.com/gp/product/B0CRRMPP3C)
 
 ![image](reference/esp32-pins.jpg)
+
+![image](reference/esp32.jpg)
 
 ### Fardriver Serial Pin-out
 
@@ -22,9 +26,6 @@ RXD            | 23    | Red/Black    | Serial RX (3.3V)
 
 ![image](reference/fardriver-unit.jpg)
 
-### ESP32 side
-
-![image](reference/esp32.jpg)
 
 ### Adapter cable
 
@@ -41,7 +42,7 @@ RXD | 14 |
 
 ## Testing
 
-If successful, you should get output similar to this:
+If successful, you should get output similar to this, with a green LED:
 
     (Re)opening Fardriver connection
     MosTemp: 11
@@ -63,3 +64,5 @@ If successful, you should get output similar to this:
     motor_temp: 9
     MosTemp: 11
     motor_temp: 9
+
+LED may be yellow if not connected, and red if there's EMI
