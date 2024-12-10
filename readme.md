@@ -17,7 +17,7 @@
 
 ### Fardriver Serial Pin-out
 
-Name           | Pin # | Wire Color   | Description
+Name           | Fardriver Pin # | Wire Color   | Description
 ---|---|---|---|
 BW5V           |  2    | Brown/Green  | Serial power (5V)
 GND            | 13    | Black        | Reverse/Serial GND
