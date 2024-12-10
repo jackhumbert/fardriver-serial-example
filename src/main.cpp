@@ -76,7 +76,8 @@ void loop() {
             default:
                 break;
         }
-    } else {
+    // if CRC doesn't match, there was some error, like EMI
+    } else if (result.error == FardriverController::CouldNotVerifyCRC) {
         strip.SetPixelColor(0, RgbColor(10, 0, 0));
         strip.Show();
     }
