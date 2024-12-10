@@ -38,3 +38,28 @@ RXD | 14 |
 *Leave BW5V <-> 5V disconnected for now (mine is tapped with electrical tape so nothing is shorted)
 
 ![image](reference/fardriver-plug.jpg)
+
+## Testing
+
+If successful, you should get output similar to this:
+
+    (Re)opening Fardriver connection
+    MosTemp: 11
+    motor_temp: 9
+    MosTemp: 11
+    motor_temp: 9
+    MosTemp: 11
+    motor_temp: 9
+    MosTemp: 11
+    motor_temp: 9
+    MosTemp: 11
+    motor_temp: 9
+    (Re)opening Fardriver connection
+    MosTemp: 11
+    motor_temp: 9
+    MosTemp: 11
+    motor_temp: 9
+    MosTemp: 11
+    motor_temp: 9
+    MosTemp: 11
+    motor_temp: 9
