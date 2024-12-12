@@ -66,6 +66,7 @@ void loop() {
             case 0xE8:
             case 0xEE: {
                 // could handle more common messages here (these are sent often)
+                Serial.printf("Speed: %f\n", data.GetSpeed());
             } break;
             case 0xD6: {
                 Serial.printf("MosTemp: %d\n", data.addrD6.MosTemp);
