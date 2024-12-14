@@ -66,13 +66,13 @@ void loop() {
             case 0xE8:
             case 0xEE: {
                 // could handle more common messages here (these are sent often)
-                Serial.printf("Speed: %f\n", data.GetSpeed());
+                Serial.printf("Speed: %0.2f\n", data.GetSpeed());
             } break;
             case 0xD6: {
-                Serial.printf("MosTemp: %d\n", data.addrD6.MosTemp);
+                Serial.printf("MosTemp: %0.2f°F\n", data.GetMosTemp());
             } break;
             case 0xF4: {
-                Serial.printf("motor_temp: %d\n", data.addrF4.motor_temp);            
+                Serial.printf("MotorTemp: %0.2f°F\n", data.GetMotorTemp());            
             } break;
             default:
                 break;
